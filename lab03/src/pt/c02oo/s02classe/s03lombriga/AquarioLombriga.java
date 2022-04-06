@@ -11,11 +11,13 @@ public class AquarioLombriga {
         this.tamLombriga = tamLombriga;
     }
     void mover(){
-        // Move 1 espaco do aquario se possivel a frente da posicao da cabeca
+        // Move 1 espaco do aquario se possivel a frente da posicao da cabeca, se nao e possivel -> vira
         if(lado == 0 && posCabeca > 1){
             posCabeca -= 1;
-        } else if(lado == 1 && posCabeca < 7){
+        } else if(lado == 1 && posCabeca < tamAquario){
             posCabeca += 1;
+        } else{
+            virar();
         }
     }
     void crescer(){
@@ -42,7 +44,7 @@ public class AquarioLombriga {
         String apresentacao = "";
         for(int i = 1;i<=tamAquario;i++){ 
             if(lado == 0 && i == posCabeca){ // Lombriga do lado 0
-                apresentacao += "0";
+                apresentacao += "O";
                 for(int t = 0;t<tamLombriga-1;t++){
                     apresentacao += "@";
                     i++;
@@ -53,7 +55,7 @@ public class AquarioLombriga {
                     apresentacao += "@";
                     i++;
                 }
-                apresentacao += "0";
+                apresentacao += "O";
             }
             else { // Parte vazia do aquario
                 apresentacao += "#";

@@ -13,6 +13,7 @@ public class AppLombriga {
           anima.passo();
           if(i == 2){ // Divisao de animacoes
              tk.gravaPasso("=====");
+             tk.gravaPasso(anima.apresenta());
           }
           if(i > 2){
              tk.gravaPasso(anima.apresenta());
