@@ -22,7 +22,20 @@ public class Tabuleiro {
 	}
 	
 	Tabuleiro(){
+		posicao = new Casa[7][7];
 		preencherTabuleiro();
+	}
+	
+	int[] acharCoord(String comando) {
+		int coord[] = new int[2];
+		coord[0] = comando.charAt(0) - 97;
+		coord[1] = Integer.parseInt(comando.split("")[1]);
+		return coord;
+	}
+	
+	void jogada(String src, String dest) {
+		int coordAtacante[] = acharCoord(src); //[0,1]
+		int coordMovimento[] = acharCoord(dest);
 	}
 	
 	char[][] apresenta() {

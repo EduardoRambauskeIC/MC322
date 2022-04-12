@@ -6,7 +6,7 @@ public class Casa {
 	
 	Casa(Peca peca){
 		this.peca = peca;
-		if(this.peca != null) {
+		if(this.peca == null) {
 			this.vazia = true;
 		} else {
 			this.vazia = false;
