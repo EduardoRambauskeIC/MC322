@@ -16,7 +16,8 @@ public class AppRestaUm {
       tk.writeBoard("Tabuleiro inicial", board.apresenta());
       for (int l = 0; l < commands.length; l++) {
     	  String comando[] = commands[l].split(":");
-    	  board.jogada(comando[0],comando[1]);
+    	  String jogada = board.jogada(comando[0],comando[1]);
+    	  tk.writeBoard(jogada, board.apresenta());
       }
               
       tk.stop();

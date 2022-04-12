@@ -1,15 +1,14 @@
 package pt.c02oo.s03relacionamento.s04restaum;
 
 public class Casa {
-	boolean vazia;
+	int linha;
+	int coluna;
 	Peca peca;
 	
-	Casa(Peca peca){
+	Casa(Peca peca,int linha, int coluna){
 		this.peca = peca;
-		if(this.peca == null) {
-			this.vazia = true;
-		} else {
-			this.vazia = false;
-		}
+		this.linha = linha;
+		this.coluna = coluna;
 	}
+	
 }
