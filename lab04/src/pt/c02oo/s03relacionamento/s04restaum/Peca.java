@@ -1,27 +1,44 @@
 package pt.c02oo.s03relacionamento.s04restaum;
 
 public class Peca {
-	boolean em_jogo;
+	// Atributo que define se a Peca de uma Casa esta em jogo
+	private boolean emJogo;
 	
-	Peca(boolean em_jogo){
-		this.em_jogo = em_jogo;
+	// Interface
+	public boolean getEmJogo() {
+		return emJogo;
+	}
+	private void setEmJogo(boolean emJogo) {
+		this.emJogo = emJogo;
 	}
 	
-	void captura(Casa movimento,Casa capturada) {
-		if(capturada.peca.em_jogo == true) {
-			if(movimento.peca.em_jogo == false) {
-				capturada.peca.capturar();
-				this.em_jogo = false;
-				movimento.peca.em_jogo = true;
+	public Peca(boolean em_jogo){
+		// Constructor da Peca
+		this.emJogo = em_jogo;
+	}
+	
+	public int captura(Casa movimento,Casa capturada) {
+		// A peca recebe a casa para o destino do movimento e a casa onde tem a peca a ser capturada e realiza a captura
+		
+		// Verifica se existe a peca intermediaria que seria capturada
+		if(capturada.getPeca().emJogo == true) {
+			// Verifica se nao existe uma peca no espaco para ser movida
+			if(movimento.getPeca().emJogo == false) {
+				capturada.getPeca().setEmJogo(false);
+				this.emJogo = false;
+				movimento.getPeca().emJogo = true;
+				return 0;
 			} else {
-				System.out.println("Casa destino não está vazia");
+				// Se nao tiver vazio a casa de movimento retorna 2
+				System.out.println("Casa destino nao esta vazia");
+				return 2;
 			}
 		}else{
-			System.out.println("Não há peça a ser capturada");
+			// Retorna 1 se n tiver peca a ser capturada
+			System.out.println("Nao ha peca a ser capturada");
+			return 1;
 		}
 	}
 	
-	void capturar() {
-		this.em_jogo = false;
-	}
+	
 }
